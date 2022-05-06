@@ -1,3 +1,9 @@
+.navbar-brand{
+font-weight: bolder;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-size: 3em;
+}
+
 .imagesCarousel{
     height: 90vh;
 }
@@ -5,3 +11,5 @@
 .carouselContent{
     color: #0000FF;
 }
+
+
