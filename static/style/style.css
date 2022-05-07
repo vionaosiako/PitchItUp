@@ -16,4 +16,17 @@ font-size: 3em;
     background-color: bisque;
 }
 
+.imagesCarousel{
+    height: 90vh;
+}
+
+.registerForm{
+    background-color: bisque; 
+}
+
+.centerForm{
+    display: flex; 
+    justify-content: center;
+}
+
 
