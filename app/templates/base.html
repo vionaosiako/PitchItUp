@@ -25,16 +25,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ url_for ('index') }}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ url_for ('main.index') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for ('addpitch') }}">New Pitch</a>
+                            <a class="nav-link" href="{{ url_for ('main.addpitch') }}">New Pitch</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for ('signIn') }}">Sign In</a>
+                            <a class="nav-link" href="{{ url_for ('main.signIn') }}">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('register')}}">Sign Up</a>
+                            <a class="nav-link" href="{{url_for('main.register')}}">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Log Out</a>
@@ -50,7 +50,7 @@
         </div>
 
         <footer class="text-center bg-dark">
-            <p style="color: aliceblue;">copywrite &copy; 2022</p>
+            <p style="color: aliceblue;">copywrite &copy; 2022 <span class="navbar-brand text-warning" style="font-size: 2rem;">PitchItUp</span></p>
             <p style="color: aliceblue;">Viona Osiako (Lioness)</p>
         </footer>
     

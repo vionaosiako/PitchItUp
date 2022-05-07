@@ -1,39 +1,16 @@
-from flask import Flask,render_template
-from forms import *
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY']='vivioonana123'
-
-# class LoginForm()
-
-@app.route('/')
-@app.route('/index')
-def index():
-    '''
-    View root page function that returns the index page and its data
-    '''
-    return render_template('index.html')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form=RegistrationForm()
-    return render_template('signup.html', form= form)
-
-@app.route('/signIn', methods=['GET', 'POST'])
-def signIn():
-    form=LogInForm()
-    return render_template('login.html', form= form)
-
-@app.route('/comment', methods=['GET', 'POST'])
-def comment():
-    form=CommentForm()
-    return render_template('comment.html', form= form)
-
-@app.route('/addpitch', methods=['GET', 'POST'])
-def addpitch():
-    form=AddPitchForm()
-    return render_template('addPitch.html', form= form)
-
+from app import create_app
+from flask_script import Manager,Server
+# Creating app instance
+app = create_app('development')
+manager = Manager(app)
+manager.add_command('server',Server)
 if __name__ == '__main__':
-    app.run(debug = True)
+    manager.run()
+
+# from flask import Flask,render_template
+# from forms import *
+
+# app = Flask(__name__)
+
+# if __name__ == '__main__':
+#     app.run(debug = True)
