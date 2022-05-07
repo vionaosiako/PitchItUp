@@ -2,6 +2,7 @@ import os
 
 class Config:
     SECRET_KEY='vivioonana123'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://riziki:riziki@localhost/pitch'
 
 class ProdConfig(Config):
     pass
