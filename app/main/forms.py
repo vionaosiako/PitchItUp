@@ -24,5 +24,5 @@ class AddPitchForm(FlaskForm):
     title =StringField('Title', validators=[DataRequired()])
     newPitch =StringField('Pitch Content', validators=[DataRequired()])
     category=StringField('Pitch Category', validators=[DataRequired()])
-    submit = SubmitField('Submit Pitch')
+    submit = SubmitField('Add Pitch')
     
