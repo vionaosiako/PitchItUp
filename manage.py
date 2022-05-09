@@ -16,8 +16,12 @@
 # migrate = Migrate(app,db)
 # manager.add_command('db',MigrateCommand)
 
-
+# from app.models import User
 from app import app
 
+# @manager.shell
+# def make_shell_context():
+#     return dict(app = app,db = db )
+
 if __name__ == '__main__':
-    app.run(debug='true')
+    app.run(debug=True)
