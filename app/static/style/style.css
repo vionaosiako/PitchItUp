@@ -29,4 +29,8 @@ font-size: 3em;
     justify-content: center;
 }
 
+.thumb{
+    display: flex;
+}
+
 

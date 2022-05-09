@@ -10,7 +10,8 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    pitches = Pitch.query.all()
+    return render_template('index.html',pitches=pitches)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
