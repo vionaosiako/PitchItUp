@@ -14,9 +14,9 @@ class UserTest(unittest.TestCase):
         self.assertTrue(isinstance(self.new_user,  User))
         
     def setUp(self):
-        '''
-            Set up method to run before each test cases.
-        '''
+    '''
+        Set up method to run before each test cases.
+    '''
         self.new_user = User("1","Viona","vee@gmail.com","vee")
 
 
@@ -29,6 +29,3 @@ class UserTest(unittest.TestCase):
         self.assertEqual(self.new_user.username,"Viona")
         self.assertEqual(self.new_user.email,"Vee@gmail.com")
         self.assertEqual(self.new_user.password,"vee")
-        
-if __name__ == '__main__':
-    unittest.main()
