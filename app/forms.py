@@ -25,7 +25,7 @@ class LogInForm(FlaskForm):
     submit = SubmitField('Sign In')
     
 class CommentForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    username = StringField('Username', validators=[DataRequired()])
     comment = StringField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
     

@@ -1,6 +1,6 @@
 from flask import Flask, render_template,redirect,flash,url_for,request
 from app import app,db,bcrypt
-from app.models import User, Pitch
+from app.models import User, Pitch,Comment
 from .forms import *
 from flask_login import current_user,logout_user,login_required
 # login_user
@@ -52,6 +52,15 @@ def logout():
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
     form=CommentForm()
+    if form.validate_on_submit():
+        comment = Comment(username= form.username.data, comment = form.comment.data)
+        db.session.add(comment)
+        db.session.commit()
+        flash('Your comment has been add successful')
+        return redirect(url_for('index'))
+    if form.errors != {}:
+        for err_msg in form.errors.values():
+            flash(f'There was an error when add the comment:(err_msg)')
     return render_template('comment.html', form= form)
 
 @app.route('/addapitch', methods=['GET', 'POST'])
@@ -61,7 +70,7 @@ def addpitch():
         pitch = Pitch(email=form.email.data, title=form.title.data, content=form.content.data, category_name = form.category_name.data)
         db.session.add(pitch)
         db.session.commit()
-        flash('Your pitch has been add success')
+        flash('Your pitch has been add successful')
         return redirect(url_for('index'))
     if form.errors != {}:
         for err_msg in form.errors.values():

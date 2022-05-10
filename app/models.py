@@ -99,6 +99,7 @@ class Pitch(db.Model):
 class Comment(db.Model):
     __tablename__ = 'commenttable'
     comment_id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100),index = True)
     comment = db.Column(db.String(500), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     pitch_id = db.Column(db.Integer, db.ForeignKey("pitchtable.pitch_id"))
