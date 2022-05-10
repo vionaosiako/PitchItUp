@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="row bg-primary">
+    <h1 class="text-center">Elevator Pitches</h1>
+    {% for pitch in pitch_Elevator %}
+        <div class="col-lg-6 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">{{pitch.title}}</h3>
+                    <p class="card-text">{{pitch.content}}</p>
+                    <p class="card-text text-center"><b>Category: </b>{{pitch.category_name}}</p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <a class="btn btn-primary" href="{{ url_for('comment') }}">Comment</a>
+                        </div>
+                        <div class="thumb">
+                            <p><span class="material-symbols-outlined">thumb_up </span>0</p>
+                            <p><span class="material-symbols-outlined">thumb_down</span>0</p>
+                        </div>
+                        <!-- <div>
+                            <a class="btn btn-primary" href="{{ url_for('comment') }}">View comments</a>
+                        </div> -->
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    
+    {% endfor %}
+    </div>
+
+</div>
+
+{% endblock%}

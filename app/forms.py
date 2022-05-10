@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField,TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo,ValidationError
 from app.models import User
 
@@ -26,13 +26,13 @@ class LogInForm(FlaskForm):
     
 class CommentForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    comment = StringField('Comment', validators=[DataRequired()])
+    comment = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
     
 class AddPitchForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     title =StringField('Title', validators=[DataRequired()])
-    content =StringField('Pitch Content', validators=[DataRequired()])
+    content =TextAreaField('Pitch Content', validators=[DataRequired()])
     category_name=StringField('Pitch Category', validators=[DataRequired()])
     submit = SubmitField('Add Pitch')
     

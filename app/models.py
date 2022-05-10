@@ -14,13 +14,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(100),unique = True,index = True)
     email = db.Column(db.String(100),unique = True,index = True)
     password = db.Column(db.String(255))
-    pitchtable = db.relationship('Pitch', backref='user', lazy="dynamic")
-    commenttable = db.relationship('Comment', backref='user', lazy="dynamic")
-    def save_user(self):
-        db.session.add(self)
+    pitchtable = db.relationship('Pitch', backref='user')
+    commenttable = db.relationship('Comment', backref='user')
+    def save_user(self, user):
+        ''' Save the pitches '''
+        db.session.add(user)
         db.session.commit()
     def __repr__(self):
-        return f'User {self.username}'
+        return f"Pitch('{self.username}')"
+    
+
     
     # @property
     # def prettier_budget(self):
@@ -88,7 +91,7 @@ class Pitch(db.Model):
     content = db.Column(db.String(500), index=True)
     category_name = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
-    commenttable = db.relationship('Comment', backref='pitch', lazy="dynamic")
+    commenttable = db.relationship('Comment', backref='pitch')
     def save_pitch(self, pitch):
         ''' Save the pitches '''
         db.session.add(pitch)
